@@ -17,8 +17,11 @@ async def insert_users():
 
         user.save_to_db()
 
-        user_from_db = User.load_from_db_by_email('sdisen')
+        user_from_db = User.load_from_db_by_email('blaaaa')
 
     except Exception:
         return 'Error'
     return 'Query Successful'
+
+
+
