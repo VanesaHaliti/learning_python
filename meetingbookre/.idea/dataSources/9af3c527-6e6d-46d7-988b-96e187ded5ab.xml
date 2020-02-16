@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.17">
     <root id="1">
       <ServerVersion>12.1</ServerVersion>
-      <StartupTime>1581017677</StartupTime>
+      <StartupTime>1581582806</StartupTime>
     </root>
     <database id="2" parent="1" name="example">
       <ObjectId>16393</ObjectId>
@@ -17,11 +17,11 @@
       <ObjectId>13318</ObjectId>
       <Comment>default administrative connection database</Comment>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>525</IntrospectionStateNumber>
+      <IntrospectionStateNumber>583</IntrospectionStateNumber>
       <Current>1</Current>
-      <Relations>sequence|table|16429|16431|1
-sequence|table|16440|16442|1
+      <Relations>sequence|table|16440|16442|1
 sequence|table|16448|16450|1
+sequence|table|16517|16519|1
 </Relations>
     </database>
     <role id="5" parent="1" name="pg_execute_server_program">
@@ -73,7 +73,7 @@ sequence|table|16448|16450|1
       <Comment>standard public schema</Comment>
       <StateNumber>276</StateNumber>
       <Owner>postgres</Owner>
-      <IntrospectionStateNumber>526</IntrospectionStateNumber>
+      <IntrospectionStateNumber>584</IntrospectionStateNumber>
       <Current>1</Current>
     </schema>
     <access-method id="17" parent="4" name="heap">
@@ -163,9 +163,9 @@ sequence|table|16448|16450|1
       <CacheSize>1</CacheSize>
       <DataType>integer</DataType>
     </sequence>
-    <sequence id="28" parent="16" name="user_id_seq">
-      <ObjectId>16429</ObjectId>
-      <StateNumber>504</StateNumber>
+    <sequence id="28" parent="16" name="users_id_seq">
+      <ObjectId>16517</ObjectId>
+      <StateNumber>581</StateNumber>
       <Owner>postgres</Owner>
       <SequenceIdentity>1</SequenceIdentity>
       <CacheSize>1</CacheSize>
@@ -181,10 +181,10 @@ sequence|table|16448|16450|1
       <Owner>postgres</Owner>
       <StateNumber>521</StateNumber>
     </table>
-    <table id="31" parent="16" name="user">
-      <ObjectId>16431</ObjectId>
+    <table id="31" parent="16" name="users">
+      <ObjectId>16519</ObjectId>
       <Owner>postgres</Owner>
-      <StateNumber>512</StateNumber>
+      <StateNumber>581</StateNumber>
     </table>
     <column id="32" parent="29" name="id">
       <Position>1</Position>
@@ -288,41 +288,41 @@ sequence|table|16448|16450|1
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
-      <StateNumber>504</StateNumber>
-      <DefaultExpression>nextval(&apos;user_id_seq&apos;::regclass)</DefaultExpression>
+      <StateNumber>581</StateNumber>
+      <DefaultExpression>nextval(&apos;users_id_seq&apos;::regclass)</DefaultExpression>
       <TypeId>23</TypeId>
     </column>
-    <column id="48" parent="31" name="name">
+    <column id="48" parent="31" name="email">
       <Position>2</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>510</StateNumber>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="49" parent="31" name="email">
+    <column id="49" parent="31" name="first_name">
       <Position>3</Position>
-      <DataType>varchar|0s</DataType>
-      <StateNumber>511</StateNumber>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>581</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="50" parent="31" name="id_number">
+    <column id="50" parent="31" name="last_name">
       <Position>4</Position>
-      <DataType>integer|0s</DataType>
-      <StateNumber>512</StateNumber>
-      <TypeId>23</TypeId>
+      <DataType>varchar(255)|0s</DataType>
+      <StateNumber>581</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <index id="51" parent="31" name="user_pk">
-      <ObjectId>16435</ObjectId>
-      <StateNumber>504</StateNumber>
+    <index id="51" parent="31" name="users_pkey">
+      <ObjectId>16526</ObjectId>
+      <StateNumber>581</StateNumber>
       <ColNames>id</ColNames>
       <Unique>1</Unique>
       <Primary>1</Primary>
     </index>
-    <key id="52" parent="31" name="user_pk">
-      <ObjectId>16436</ObjectId>
-      <StateNumber>504</StateNumber>
+    <key id="52" parent="31" name="users_pkey">
+      <ObjectId>16527</ObjectId>
+      <StateNumber>581</StateNumber>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
-      <UnderlyingIndexName>user_pk</UnderlyingIndexName>
+      <UnderlyingIndexName>users_pkey</UnderlyingIndexName>
     </key>
   </database-model>
 </dataSource>
