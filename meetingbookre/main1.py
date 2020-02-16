@@ -17,11 +17,23 @@ def create_user(user: User):
     return UserInDB(id=1, **user.dict())  # we are unpacking a dictionary into arguments'''
 
 
-@app.put("/users")
-async def user():
-    user = User('vaaaaanesa', 'Jose', 'Salvatierra')
+@app.get("/")
+def test_root():
+    """This is the root"""
+    return {"Hello": "world"}
+
+
+@app.get("/user/getAll")
+async def read_users():
+    all_user_data_from_db = User.load_all_from_db()
+    return all_user_data_from_db
+
+
+@app.put("/user/{id}")
+async def update_user(id_number: int):
+    user = User('vanesahaliti@gmail.com', 'Nesa', 'Haliti')
     user.save_to_db()
-    user_from_db = User.load_from_db_by_email('jose@schoolofcode.me')
+    user_from_db = User.load_from_db_by_email('vanesahaliti@gmail.com')
     return user
 
 
@@ -29,8 +41,6 @@ async def user():
 async def get_user():
     user_from_db = User.load_from_db_by_email('jose@schoolofcode.me')
     return user_from_db
-
-
 
 
 '''@app.post("/user", response_model=User)  # response says give us a user model and it will

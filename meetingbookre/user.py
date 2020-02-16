@@ -24,3 +24,11 @@ class User:
             cursor.execute('SELECT * FROM users WHERE email=%s', (email,))
             user_data = cursor.fetchone()
             return cls(email=user_data[1], first_name=user_data[2], last_name=user_data[3], id=user_data[0])
+
+    @classmethod
+    def load_all_from_db(cls):
+        with CursorFromConnectionPool() as cursor:
+            # Note the (email,) to make it a tuple!
+            cursor.execute('SELECT * FROM users')
+            user_data = cursor.fetchall()
+            return user_data

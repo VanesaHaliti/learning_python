@@ -9,11 +9,11 @@ app = FastAPI()
 Database.initialise(database="postgres", user="postgres", password="admin", host="localhost")
 
 
-@app.get("/shto")
-async def Insert():
+@app.post("/insert")
+async def insert_users():
     try:
 
-        user = User('Vanesa', 'Kalt', 'adsfghjk')
+        user = User('Stephen@gmail.com', 'Stephen', 'Hawking')
 
         user.save_to_db()
 
